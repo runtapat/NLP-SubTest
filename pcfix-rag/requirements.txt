@@ -1,0 +1,6 @@
+streamlit>=1.35
+sentence-transformers>=3.0
+faiss-cpu>=1.8
+groq>=0.9
+pythainlp>=5.0
+numpy

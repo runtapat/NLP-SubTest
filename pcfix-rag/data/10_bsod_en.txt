@@ -1,0 +1,21 @@
+# Blue Screen of Death (BSOD) and Hardware Causes
+
+A Blue Screen of Death (BSOD) appears when Windows hits a critical error it cannot recover from. The screen shows a stop code and a QR code. Not every BSOD is a hardware fault, but repeated crashes with different stop codes often point to failing hardware.
+
+Common stop codes and likely causes:
+- MEMORY_MANAGEMENT or PAGE_FAULT_IN_NONPAGED_AREA: usually faulty RAM or a bad driver. Run MemTest86 for at least 4 passes.
+- CRITICAL_PROCESS_DIED: often corrupted system files or a failing storage drive. Run sfc /scannow and check the drive's S.M.A.R.T. status.
+- INACCESSIBLE_BOOT_DEVICE: Windows cannot read the boot drive. Check SATA or NVMe connections, BIOS storage mode (AHCI vs RAID), or a dying SSD.
+- WHEA_UNCORRECTABLE_ERROR: a hardware error reported by the CPU, often caused by overheating, unstable overclocking, a failing PSU, or faulty RAM.
+- VIDEO_TDR_FAILURE: the graphics driver stopped responding. Reinstall the GPU driver with DDU and check GPU temperatures.
+- CLOCK_WATCHDOG_TIMEOUT: a CPU core did not respond in time, which can indicate CPU instability or outdated BIOS.
+
+Troubleshooting steps:
+1. Write down the stop code, or photograph the screen.
+2. Disconnect new hardware or USB devices installed recently.
+3. Boot into Safe Mode and roll back recent driver updates.
+4. Check temperatures and remove any overclock, including XMP, to test stability.
+5. Review minidump files in C:\Windows\Minidump using a tool such as WinDbg or BlueScreenView to identify the faulty driver.
+6. Update BIOS and chipset drivers.
+
+If crashes continue after a clean Windows reinstall, the cause is very likely hardware, most commonly RAM, storage, or the power supply.

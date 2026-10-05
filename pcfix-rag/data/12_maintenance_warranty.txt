@@ -1,0 +1,15 @@
+# Preventive Maintenance and Warranty Tips / การบำรุงรักษาและการรับประกัน
+
+Preventive maintenance checklist (การบำรุงรักษาเชิงป้องกัน):
+- Clean dust from the case, fans and heatsinks every 6-12 months.
+- Replace thermal paste on the CPU every 2-3 years or when temperatures rise noticeably.
+- Use a UPS (Uninterruptible Power Supply) or a surge protector to guard against power surges and sudden outages, which can damage the PSU and storage.
+- Back up important data using the 3-2-1 rule.
+- Keep BIOS, chipset and GPU drivers up to date, but avoid updating BIOS if the system is stable and there is no specific reason.
+- Keep the PC in a well-ventilated place, at least 10-15 cm away from walls.
+
+ขั้นตอนมาตรฐานเมื่อเครื่องมีปัญหา: 1) จดอาการและรหัสข้อผิดพลาด 2) ตรวจสอบสายและการเชื่อมต่อ 3) ทดสอบโดยการสลับชิ้นส่วนที่ใช้งานได้ดี 4) ถอดอุปกรณ์เสริมออกแล้วบูตด้วยชิ้นส่วนขั้นต่ำ 5) หากแก้ไม่ได้ ติดต่อศูนย์บริการหรือช่างผู้เชี่ยวชาญ
+
+ความปลอดภัย: ก่อนเปิดเคส ให้ปิดเครื่อง ถอดปลั๊กไฟทุกครั้ง และใช้สายรัดข้อมือกันไฟฟ้าสถิต (Anti-static wrist strap) หรือแตะโลหะของเคสเพื่อคายประจุไฟฟ้าสถิตก่อนสัมผัสชิ้นส่วน ห้ามสัมผัสขาทองหรือวงจรโดยตรง
+
+การรับประกัน (Warranty): โดยทั่วไป CPU รับประกัน 3 ปี เมนบอร์ด 3 ปี RAM รับประกันตลอดอายุการใช้งาน (Lifetime) ในบางยี่ห้อ SSD 3-5 ปี HDD 2-3 ปี PSU 3-10 ปี และโน้ตบุ๊กประมาณ 1-2 ปี เก็บใบเสร็จและกล่องไว้เสมอ การแกะสติกเกอร์รับประกัน ความเสียหายจากการตกหล่น น้ำเข้า หรือไฟไหม้ ไม่อยู่ในเงื่อนไขการรับประกัน
