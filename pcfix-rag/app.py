@@ -92,10 +92,29 @@ def build_messages(question, hits, history):
     return msgs
 
 
+PREFERRED_MODELS = [LLM_MODEL, "openai/gpt-oss-120b", "openai/gpt-oss-20b",
+                    "llama-3.1-8b-instant", "qwen/qwen3-32b"]
+
+
+def pick_model(client):
+    """เลือกโมเดลแรกที่บัญชี Groq ของผู้ใช้เรียกใช้ได้จริง (กัน model_not_found)"""
+    if "llm_model" in st.session_state:
+        return st.session_state["llm_model"]
+    try:
+        available = {m.id for m in client.models.list().data}
+    except Exception:
+        available = set()
+    skip = ("whisper", "tts", "guard", "orpheus", "playai", "embed")
+    chosen = next((m for m in PREFERRED_MODELS if m in available), None) or next(
+        (m for m in sorted(available) if not any(k in m for k in skip)), LLM_MODEL)
+    st.session_state["llm_model"] = chosen
+    return chosen
+
+
 def ask_llm(messages):
     from groq import Groq
     client = Groq(api_key=st.secrets["GROQ_API_KEY"])  # เก็บใน Streamlit Secrets เท่านั้น
-    r = client.chat.completions.create(model=LLM_MODEL, messages=messages, temperature=0.1)
+    r = client.chat.completions.create(model=pick_model(client), messages=messages, temperature=0.1)
     return r.choices[0].message.content
 
 
@@ -129,7 +148,7 @@ with st.sidebar:
     if st.button("🗑️ ล้างแชต", use_container_width=True):
         st.session_state.messages = []
         st.rerun()
-    st.markdown(f"**Embedding:** `{EMBED_MODEL}`  \n**LLM:** `{LLM_MODEL}`  \n**Top-K:** {TOP_K}")
+    st.markdown(f"**Embedding:** `{EMBED_MODEL}`  \n**LLM:** `{st.session_state.get('llm_model', LLM_MODEL)}` (Groq)  \n**Top-K:** {TOP_K}")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
